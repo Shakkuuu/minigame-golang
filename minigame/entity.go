@@ -1,12 +1,6 @@
 package minigame
 
-type UserStatus struct {
-	HP  int
-	ATK int
-}
-
-type EnemyStatus struct {
-	Name string
-	HP   int
-	ATK  int
+type Coin struct {
+	Qty         int
+	CreateSpeed int
 }

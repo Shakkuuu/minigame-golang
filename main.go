@@ -17,34 +17,25 @@ func main() {
 	r.GET("/", index)
 	r.GET("minigame", minigamemain)
 
-	r.POST("dmgp", dmgplayer)
-	r.POST("dmge", dmgenemy)
+	r.POST("addcoin", addcoin)
 
 	// 8082ポートで起動
 	r.Run(":8084")
 }
 
+var coin minigame.Coin
+
 func index(c *gin.Context) {
-	p = minigame.UserStatus{HP: 10, ATK: 1}
-	e = minigame.EnemyStatus{Name: "スライム", HP: 5, ATK: 1}
+	coin = minigame.Coin{Qty: coin.Qty, CreateSpeed: 1}
 	c.HTML(200, "index.html", nil)
 }
 
-var p minigame.UserStatus
-var e minigame.EnemyStatus
-
 func minigamemain(c *gin.Context) {
-	player := p
-	enemy := e
-	c.HTML(200, "game.html", gin.H{"player": player, "suraimu": enemy})
+	coi := coin
+	c.HTML(200, "game.html", gin.H{"Coin": coi})
 }
 
-func dmgplayer(c *gin.Context) {
-	p.HP -= e.ATK
-	c.Redirect(303, "/minigame")
-}
-
-func dmgenemy(c *gin.Context) {
-	e.HP -= p.ATK
+func addcoin(c *gin.Context) {
+	coin.Qty += coin.CreateSpeed
 	c.Redirect(303, "minigame")
 }

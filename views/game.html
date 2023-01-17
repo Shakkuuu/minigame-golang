@@ -8,10 +8,10 @@
     <h2>game</h2>
     {{.message}}
     {{.result}}
-    <p>{{.player.HP}} {{.player.ATK}}</p>
-    <p>{{.suraimu.Name}} {{.suraimu.HP}} {{.suraimu.ATK}}</p>
-    <form action="/dmge" method="POST">
-        <input type="submit" value="攻撃">
+    <p>{{.Coin.CreateSpeed}}</p>
+    <p>{{.Coin.Qty}}</p>
+    <form action="/addcoin" method="POST">
+        <input type="submit" value="クリック">
     </form>
     <p><a href="/">戻る</a></p>
 </body>
