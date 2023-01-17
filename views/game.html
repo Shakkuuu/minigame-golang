@@ -8,10 +8,14 @@
     <h2>game</h2>
     {{.message}}
     {{.result}}
-    <p>{{.Coin.CreateSpeed}}</p>
-    <p>{{.Coin.Qty}}</p>
+    <p>1クリック {{.Speed}} 枚</p>
+    <p>所持 {{.Qty}} 枚</p>
     <form action="/addcoin" method="POST">
         <input type="submit" value="クリック">
+    </form>
+    コイン {{.Speedneed}} で生産量アップ
+    <form action="/createspeedup" method="POST">
+        <input type="submit" value="スピードアップ">
     </form>
     <p><a href="/">戻る</a></p>
 </body>

@@ -1,6 +1,7 @@
 package minigame
 
 type Coin struct {
-	Qty         int
-	CreateSpeed int
+	Qty       float32
+	Speed     float32
+	Speedneed float32
 }
